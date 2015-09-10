@@ -2,9 +2,11 @@
 
 angular.module('toDoApp')
   .controller('MainCtrl',['$scope', function ($scope) {
-    $scope.awesomeThings = [
+    $scope.lists = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
+    
+    $scope.new = false;
   }]);
