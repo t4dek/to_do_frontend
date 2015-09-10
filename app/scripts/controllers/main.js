@@ -9,4 +9,10 @@ angular.module('toDoApp')
     ];
     
     $scope.new = false;
+    
+    $scope.tasks = [
+      'HTML5 Boilerplate',
+      'AngularJS',
+      'Karma'
+    ];
   }]);

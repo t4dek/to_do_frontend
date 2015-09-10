@@ -1,9 +1,9 @@
-<div class="list">
+<div class="lists">
   <h2 class="text-center head-text">LISTS</h2>
   <div class="list-group">
     <a href="" class="list-group-item" ng-repeat="list in lists" ng-click="showTasks(list)">{{list}}</a>
     <a href="" class="list-group-item" ng-show="new">
-      <form id="todo-form" ng-submit="addTodo()" ng-show="new">
+      <form id="todo-form" ng-submit="addList()" ng-show="new">
         <input id="new-todo" placeholder="Create a new list.." autofocus>
       </form>
     </a>
