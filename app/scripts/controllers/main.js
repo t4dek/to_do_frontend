@@ -1,13 +1,6 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name toDoAppApp.controller:MainCtrl
- * @description
- * # MainCtrl
- * Controller of the toDoAppApp
- */
-angular.module('toDoAppApp')
+angular.module('toDoApp')
   .controller('MainCtrl', function () {
     this.awesomeThings = [
       'HTML5 Boilerplate',
