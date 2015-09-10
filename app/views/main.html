@@ -1,17 +1,12 @@
 <div class="row">
   <div ng-controller="MainCtrl">
-    {{awesomeThings}}
-    <ul>
-        <li class="dropdown">
-          <a class="dropdown-toggle">
-            Click me to see some awesome things!
-          </a>
-          <ul class="dropdown-menu">
-            <li ng-repeat="thing in awesomeThings">
-              <a>{{thing}}</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-3">
+      <div ng-include="'views/lists.html'"></div>
+    </div>
+    <div class="col-md-6">
+      <div ng-include="'views/tasks.html'"></div>
+    </div>
   </div>
 </div>
