@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('toDoApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
+  .controller('MainCtrl',['$scope', function ($scope) {
+    $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
-  });
+  }]);
