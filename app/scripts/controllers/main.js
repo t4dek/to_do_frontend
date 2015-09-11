@@ -8,6 +8,8 @@ angular.module('toDoApp')
       'Karma'
     ];
     
+    $scope.errors = [];
+    
     $scope.new = false;
     
     $scope.tasks = [
@@ -15,4 +17,12 @@ angular.module('toDoApp')
       'AngularJS',
       'Karma'
     ];
+    
+    $scope.addList = function(list){
+      if (list){
+        $scope.lists.push(list);
+      } else {
+          $scope.errors.push("Enter a name of a list first!");
+      }
+    }
   }]);
