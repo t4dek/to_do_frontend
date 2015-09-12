@@ -1,22 +1,22 @@
 'use strict';
 
 angular.module('toDoApp')
-  .controller('MainCtrl',['$scope', function ($scope) {
-    $scope.lists = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl',['$scope', 'ToDo', function ($scope, ToDo) {
     
     $scope.errors = [];
-    
     $scope.new = false;
+    $scope.lists = [];
+    $scope.tasks = [];
     
-    $scope.tasks = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+    ToDo.allLists().then(function(response){
+      $scope.lists = response.data;
+    })
+    
+    $scope.showTasks = function(listId){
+      ToDo.listTasks(listId).then(function(response){
+        $scope.tasks = response.data;
+      })
+    }
     
     $scope.addList = function(list){
       if (list){

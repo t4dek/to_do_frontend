@@ -1,12 +1,12 @@
 <div class="lists">
   <h2 class="text-center head-text">LISTS</h2>
   <div class="list-group">
-    <a href="" class="list-group-item" ng-repeat="list in lists" ng-click="showTasks(list)">{{list}}</a>
+    <a href="" class="list-group-item" ng-repeat="list in lists" ng-click="showTasks(list.id)">{{list.title}}</a>
     <a href="" class="list-group-item" ng-show="new">
       <div class="input-group">
         <input type="text" ng-model="newList" class="form-control" placeholder="Create a new list...">
         <span class="input-group-btn">
-          <button class="btn btn-default" type="button" ng-click="addList(newList); new=false">Add</button>
+          <button class="btn btn-default" type="button" ng-click="addList(newList); new=false; newList=''">Add</button>
         </span>
       </div>
     </a>
@@ -17,3 +17,4 @@
 </div>
 {{new}}
 {{errors}}
+{{newList}}
