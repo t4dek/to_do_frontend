@@ -8,21 +8,27 @@ angular.module('toDoApp')
     $scope.lists = [];
     $scope.tasks = [];
     
-    ToDo.allLists().then(function(response){
-      $scope.lists = response.data;
-    })
+    function retrieveLists(){
+      ToDo.allLists().then(function(response){
+        $scope.lists = response.data;
+      });
+    }
+    
+    retrieveLists();
     
     $scope.showTasks = function(listId){
       ToDo.listTasks(listId).then(function(response){
         $scope.tasks = response.data;
-      })
-    }
+      });
+    };
     
-    $scope.addList = function(list){
-      if (list){
-        $scope.lists.push(list);
+    $scope.addList = function(title){
+      if (title){
+        ToDo.createList(title);
+        retrieveLists();
+        console.log($scope.lists);
       } else {
           $scope.errors.push("Enter a name of a list first!");
       }
-    }
+    };
   }]);
