@@ -3,8 +3,10 @@
 angular.module('toDoApp')
   .controller('MainCtrl',['$scope', 'ToDo', function ($scope, ToDo) {
     
-    $scope.errors = [];
     $scope.new = false;
+    $scope.showEdit = false;
+    $scope.editable = false;
+    $scope.errors = [];
     $scope.lists = [];
     $scope.tasks = [];
     
@@ -31,4 +33,16 @@ angular.module('toDoApp')
           $scope.errors.push("Enter a name of a list first!");
       }
     };
+    
+    $scope.editList = function(title){
+      if (title){
+        ToDo.editList(title)
+      } else {
+        $scope.errors.push("Your list should have a name!");
+      }
+    };
+    
+    $scope.makeEditable = function(){
+      $scope.editable = true;
+    }
   }]);
