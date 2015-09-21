@@ -37,17 +37,16 @@ angular.module('toDoApp')
       }
     }
     
-    $scope.editList = function(id, title){
-      if (title){
-        ToDo.editList(id, {title: title})
+    $scope.editList = function(params){
+      if (params.title){
+        ToDo.editList(params)
       } else {
         $scope.errors.push("Your list should have a name!");
       }
     };
     
     $scope.makeEditable = function(list){
-      list.editable = true;
-      
+      list.editable = true;  
     }
     
     function retrieveLists(){
