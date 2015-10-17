@@ -10,17 +10,17 @@ angular.module('toDoApp')
     $scope.tasks = [];
     $scope.currentList;
     
-    retrieveLists();
+    _retrieveLists();
     
     $scope.showTasks = function(listId){
       $scope.currentList = listId;
-      retrieveTasks(listId);
+      _retrieveTasks(listId);
     };
     
     $scope.addList = function(params){
       if (params.title){
         ToDo.createList(params).then(function() {
-          retrieveLists();
+          _retrieveLists();
         })
       } else {
           $scope.errors.push("Enter a name of a list first!");
@@ -30,7 +30,7 @@ angular.module('toDoApp')
     $scope.addTask = function(params){
       if (params.title){
         ToDo.createTask(params.list_id, params).then(function(){
-          retrieveTasks(params.list_id);
+          _retrieveTasks(params.list_id);
         })
       } else {
         $scope.errors.push("Enter a name of a task first!")
@@ -39,23 +39,24 @@ angular.module('toDoApp')
     
     $scope.editList = function(params){
       if (params.title){
-        ToDo.editList(params)
+        ToDo.editList(params);
+        _retrieveTasks(params.list_id);
       } else {
         $scope.errors.push("Your list should have a name!");
       }
     };
     
     $scope.makeEditable = function(list){
-      list.editable = true;  
+      list.editable = true;
     }
     
-    function retrieveLists(){
+    function _retrieveLists(){
       ToDo.allLists().then(function(response){
         $scope.lists = response.data;
       });
     }
     
-    function retrieveTasks(listId){
+    function _retrieveTasks(listId){
       ToDo.listTasks(listId).then(function(response){
         $scope.tasks = response.data;
       });

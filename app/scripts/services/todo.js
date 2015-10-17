@@ -16,7 +16,6 @@ angular.module('toDoApp')
         return $http.put("http://localhost:3000/lists/" + params.id, params)
       },
       createTask: function(listId, params){
-        console.log(params);
         return $http.post("http://localhost:3000/lists/" + listId + "/tasks", params)
       }
     };

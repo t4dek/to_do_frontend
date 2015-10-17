@@ -5,7 +5,7 @@
       <span class="input-group-addon" ng-click="editList(list)">
         <input type="checkbox" aria-label="..." ng-model="list.completed">
       </span>
-      <a href="" class="list-group-item" ng-mouseover="showEdit=true" ng-mouseleave="showEdit=false" ng-click="showTasks(list.id)" ng-class="{completed : list.completed}">{{list.title}}
+      <a href="" class="list-group-item" ng-mouseover="showEdit=true" ng-mouseleave="showEdit=false" ng-click="showTasks(list.id)" ng-class="{completed : list.completed, active : list.id == currentList}">{{list.title}}
         <span ng-show="showEdit">
           <div class="btn-group btn-group-xs" role="group" aria-label="...">
             <button class="new_list btn btn-default" ng-click="makeEditable(list)">
@@ -31,7 +31,7 @@
     </span>
   </div>
   <button class="new_list btn btn-success" ng-click="new=true">
-    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Add List!
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add List!
   </button>
 </div>
 {{currentList}}
